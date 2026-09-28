@@ -22,6 +22,6 @@ Framework preset: `None`. Build command: vazio. Build output directory: `public`
 
 ## Identificação (preencha após o fork)
 
-Nome: 
-RA: 
-URL: https://
+Nome: Kauan dos Santos Engel
+RA: 2024003232
+URL: https://2bim-avalia1.pages.dev
