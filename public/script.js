@@ -87,10 +87,20 @@ async function gerarDesenho() {
             return;
         }
 
-        resultado.innerHTML = svg;
+        const baixar = document.getElementById("baixar");
 
-        mensagem.textContent =
-            "Desenho gerado com sucesso.";
+        baixar.hidden = false;
+        baixar.onclick = () => {
+        const blob = new Blob([svg], { type: "image/svg+xml" });
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "exemplo.svg";
+        link.click();
+
+    URL.revokeObjectURL(url);
+};
     } catch (erro) {
         console.error(erro);
 
