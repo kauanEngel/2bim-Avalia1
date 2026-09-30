@@ -1,26 +1,57 @@
 # Desenho Assinado
 
-Página que recebe um número inteiro entre 1 e 100 e devolve uma figura em SVG, assinada com um e-mail.
+Página que recebe um número inteiro entre 1 e 100 e devolve uma figura em SVG, assinada com o e-mail da conta Google autenticada.
 
-A figura é a tabuada modular no círculo: 240 pontos igualmente espaçados numa circunferência, com cada ponto `i` ligado ao ponto `(k * i) mod 240`, em que `k = número + 1`. O número 1 produz uma cardioide, o 2 uma nefroide, e cada valor gera uma figura diferente.
+A figura é gerada no servidor a partir de 240 pontos igualmente espaçados numa circunferência, com cada ponto ligado ao ponto `(k * i) mod 240`, em que `k = número + 1`.
 
-## Estado inicial
+## Estrutura final
 
-Nesta versão tudo acontece no navegador. O arquivo `public/desenho.js` contém a função `gerarDesenho(numero, email)`, e o e-mail é digitado pelo usuário num campo do formulário.
-
-```
 public/
-  index.html    formulário com os campos número e e-mail
-  style.css     aparência da página
-  script.js     lê o formulário e chama gerarDesenho
-  desenho.js    gera o SVG (função pura, sem DOM)
-```
+  index.html
+  style.css
+  script.js
+
+lib/
+  desenho.js
+
+functions/
+  api/
+    desenho.js
+
+evidencias/
+  exemplo.svg
+
+## Autenticação
+
+O usuário realiza login com o Google utilizando Google Identity Services.
+
+O servidor recebe o ID token no cabeçalho:
+
+Authorization: Bearer <id_token>
+
+O servidor valida o token através do endpoint tokeninfo do Google, verifica o `aud` com o `GOOGLE_CLIENT_ID` e verifica se o e-mail está confirmado.
+
+O e-mail utilizado na assinatura do desenho é obtido diretamente do token validado no servidor.
+
+## API
+
+POST /api/desenho
+
+A API recebe:
+
+{"numero": 32}
+
+e retorna o SVG correspondente ao número informado.
 
 ## Publicação no Cloudflare Pages
 
-Framework preset: `None`. Build command: vazio. Build output directory: `public`.
+Framework preset: None.
 
-## Identificação (preencha após o fork)
+Build command: vazio.
+
+Build output directory: public.
+
+## Identificação
 
 Nome: Kauan dos Santos Engel
 RA: 2024003232
