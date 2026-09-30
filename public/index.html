@@ -1,5 +1,43 @@
-   <!DOCTYPE html>
-   <html lang="pt-BR">
-   <head><meta charset="UTF-8"><title>Desenho Assinado</title></head>
-   <body><h1>Desenho Assinado - em construção</h1></body>
-   </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenho Assinado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <h1>Desenho Assinado</h1>
+
+        <p>
+            Faça login com sua conta Google para gerar seu desenho.
+        </p>
+
+        <div id="google-login"></div>
+
+        <section id="desenho-area" hidden>
+            <label for="numero">Número (1 a 100):</label>
+
+            <input
+                type="number"
+                id="numero"
+                min="1"
+                max="100"
+                step="1"
+            >
+
+            <button id="gerar">Gerar desenho</button>
+
+            <p id="mensagem"></p>
+
+            <div id="resultado"></div>
+        </section>
+    </main>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
