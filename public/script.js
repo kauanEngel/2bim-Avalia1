@@ -1,6 +1,6 @@
 let idToken = null;
 
-const CLIENT_ID = "COLOQUE_SEU_CLIENT_ID_AQUI.apps.googleusercontent.com";
+const CLIENT_ID = "274567233092-ckjs91f7qd6vcdjstrhbqv9dqb8asjbo.apps.googleusercontent.com";
 
 function iniciarGoogle() {
     if (!window.google || !google.accounts || !google.accounts.id) {
