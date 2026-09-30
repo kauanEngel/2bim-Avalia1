@@ -69,6 +69,8 @@ async function gerarDesenho() {
 
         const svg = await resposta.text();
 
+        resultado.innerHTML = svg;
+
         if (resposta.status === 400) {
             mensagem.textContent =
                 "Erro 400: dados inválidos.";
